@@ -1,6 +1,6 @@
 MultiFlow
 =====================
- Extend multi-sourcees analyses to [FlowDroid](https://github.com/secure-software-engineering/soot-infoflow-android)
+ Extend multi-sources analysis to [FlowDroid](https://github.com/secure-software-engineering/soot-infoflow-android)
 
 
 ### How To Run
@@ -13,14 +13,14 @@ AndroidCallbacks.txt
 EasyTaintWrapperSource.txt
 CustomSourcesAndSinks.txt
 ```
-#### Command 
+### Command 
 It’s also the same as FlowDroid. The first parameter is the APK file, and the second parameter is the Android SDK directory. Also, you should add the additional options : “--multimode CUSTOM/ALLCOMB --nocallbackssource”. We support two running multimode: [CUSTOM, ALLCOMB] to configure the sources . “--multimode CUSTOM” means to use “CustomSourceAndSinks.txt” for custom analysis. “--multimode ALLCOMB” will run all pairwise combinations of the sources in “SourcesAndSinks.txt”.  “--nocallbackssource” is for performance reasons, since we are not ready to analyze callbacks sources.
 For example :
 ```
 java -Xmx32g -cp soot-multi-0.1.jar soot.jimple.infoflow.android.TestApps.Test /home/xxx/test/test.apk /home/xxx/software/android-sdk-linux/platforms 
 --multimode CUSTOM --nocallbackssource
 ```
-#### Sources and Sinks Configuration
+Sources and Sinks Configuration
 In mode “CUSTOM”, our tool use custom sources patterns but share common sinks. So, you need write common sinks in “SourcesAndSinks.txt”, and write custom sources patterns in “CustomSourcesAndSinks.txt”. The format of sources and sinks in each line is the same as SourcesAndSinks.txt provided by SUSI. We use “%%%” to separate the different custom sources patterns in “CustomSourcesAndSinks.txt” . 
 In mode “ALLCOMB”, you just need write all the sources and sinks in“SourcesAndSinks.txt”.
 Example of “CustomSourcesAndSinks.txt”:
@@ -33,3 +33,4 @@ Example of “CustomSourcesAndSinks.txt”:
 <android.location.Location: double getLatitude()> -> _SOURCE_
 <android.location.Location: double getLongitude()> -> _SOURCE_
 ```
+
