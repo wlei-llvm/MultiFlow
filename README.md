@@ -2,7 +2,6 @@ MultiFlow
 =====================
  Extend multi-sources analysis to [FlowDroid](https://github.com/secure-software-engineering/soot-infoflow-android)
 
-
 ### How To Run
 #### configuration
 As listed below, our tool includes the executable files(*.jar) and the configuration files for sources/sinks/taint wrappers/callbacks just like FlowDroid. The only different configuration file is “CustomSourceAndSinks.txt”, which we use to customize the multiple sources to avoid unnecessary analysis. Please put all of them in the same directory.
